@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Yesteryear&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 @import "tailwindcss";
 
 .teko{
@@ -14,7 +15,7 @@
     font-style: normal;
   }
   
-.yesteryear {
+.cursive {
     font-family: "Yesteryear", cursive;
     font-weight: 400;
     font-style: normal;
@@ -24,4 +25,10 @@
     font-family: "Permanent Marker", cursive;
     font-weight: 400;
     font-style: normal;
+}
+
+.share {
+  font-family: "Share Tech Mono", monospace;
+  font-weight: 400;
+  font-style: normal;
 }

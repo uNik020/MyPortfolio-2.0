@@ -3,8 +3,18 @@ import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react"; // Icon package
 import TiltedCard from "../blocks/Components/TiltedCard/TiltedCard.jsx";
 
+const DURATION = 0.20;
+const STAGGER = 0.025;
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const navLinks = [
+    { name: "Home", href: "#home" },
+    { name: "About", href: "#about" },
+    { name: "Projects", href: "#projects" },
+    { name: "Contact", href: "#contact" },
+  ];
 
   return (
     <nav className="fixed top-0 left-0 w-full flex justify-between items-center p-4 z-50">
@@ -33,7 +43,6 @@ const Navbar = () => {
         <div className="flex justify-between items-center w-full px-10 py-6">
           {/* Left Section */}
           <div className="flex flex-col items-start space-y-6">
-            
             <TiltedCard
               imageSrc="https://i.imgur.com/G38fCks.jpeg"
               altText="Nikhil Shekhar -N2S"
@@ -53,36 +62,67 @@ const Navbar = () => {
             />
           </div>
 
-          {/* Right Section (Navigation Links) */}
-          <div className="flex flex-col mr-32 items-start justify-center gap-4 ">
-            <a
-              href="#home"
-              className="text-6xl bruno-ace-sc font-bold cursor-pointer hover:text-gray-400 transition"
-            >
-              Home
-            </a>
-            <a
-              href="#about"
-              className="text-6xl bruno-ace-sc font-bold cursor-pointer hover:text-gray-400 transition"
-            >
-              About
-            </a>
-            <a
-              href="#projects"
-              className="text-6xl bruno-ace-sc font-bold cursor-pointer hover:text-gray-400 transition"
-            >
-              Projects
-            </a>
-            <a
-              href="#contact"
-              className="text-6xl bruno-ace-sc font-bold cursor-pointer hover:text-gray-400 transition"
-            >
-              Contact
-            </a>
+          {/* Right Section (Navigation Links with Zoop Animation) */}
+          <div className="flex flex-col mr-32 items-start justify-center gap-4">
+            {navLinks.map((link, index) => (
+              <FlipLink key={index} href={link.href}>
+                {link.name}
+              </FlipLink>
+            ))}
           </div>
         </div>
       </motion.div>
     </nav>
+  );
+};
+
+const FlipLink = ({ children, href }) => {
+  return (
+    <motion.a
+      initial="initial"
+      whileHover="hovered"
+      href={href}
+      className="relative block overflow-hidden whitespace-nowrap text-6xl font-bold bruno-ace-sc"
+    >
+      <div>
+        {children.split("").map((char, i) => (
+          <motion.span
+            key={i}
+            variants={{
+              initial: { y: 0 },
+              hovered: { y: "-100%" },
+            }}
+            transition={{
+              duration: DURATION,
+              ease: "easeInOut",
+              delay: STAGGER * i,
+            }}
+            className="inline-block"
+          >
+            {char}
+          </motion.span>
+        ))}
+      </div>
+      <div className="absolute inset-0">
+        {children.split("").map((char, i) => (
+          <motion.span
+            key={i}
+            variants={{
+              initial: { y: "100%" },
+              hovered: { y: 0 },
+            }}
+            transition={{
+              duration: DURATION,
+              ease: "easeInOut",
+              delay: STAGGER * i,
+            }}
+            className="inline-block"
+          >
+            {char}
+          </motion.span>
+        ))}
+      </div>
+    </motion.a>
   );
 };
 

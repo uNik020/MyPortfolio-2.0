@@ -35,7 +35,7 @@ const projects = [
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-4xl md:text-5xl font-extrabold text-center text-gray-900 dark:text-white"
+            className="text-4xl md:text-5xl bruno-ace-sc font-extrabold text-center text-gray-900 dark:text-white"
           >
             My Projects
           </motion.h2>

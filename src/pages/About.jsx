@@ -10,16 +10,15 @@ const About = () => {
     <>
       <ScrollVelocity
         texts={[
-          <span className="text-3xl font-bold text-red-600 bg-black px-2">
+          <span className="text-2xl text-black">
             OPEN TO WORK ⚠
           </span>,
-          " ", // Keeps the spacing
-          <span className="text-2xl font-mono text-blue-500 bg-gray-300 px-2">
-            Scroll Down & Up
+          <span className="text-xl text-zinc-800 share">
+            Scroll Up & Down
           </span>,
         ]}
         velocity={100}
-        className="custom-scroll-text p-2 bg-amber-200"
+        className="custom-scroll-text bg-amber-200 p-2 text-xl"
         numCopies={40}
       />
 
@@ -30,7 +29,7 @@ const About = () => {
             initial={{ opacity: 0, y: -50 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
-            className="text-4xl md:text-5xl font-extrabold text-center text-gray-900 dark:text-white"
+            className="text-4xl md:text-5xl font-extrabold bruno-ace-sc text-center text-gray-900 dark:text-white"
           >
             About Me
           </motion.h2>
