@@ -1,0 +1,17 @@
+/*
+	jsrepo 1.39.1
+	Installed from https://reactbits.dev/default/
+	21-2-2025
+*/
+
+.lanyard-wrapper {
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: scale(1);
+  transform-origin: center;
+}
