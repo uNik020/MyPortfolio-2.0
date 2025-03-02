@@ -2,9 +2,6 @@ import React from "react";
 
 import { motion } from "framer-motion";
 import RotatingText from "../blocks/TextAnimations/RotatingText/RotatingText";
-import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Sphere, MeshDistortMaterial } from "@react-three/drei";
-import Particles from "../blocks/Backgrounds/Particles/Particles";
 
 const Hero = () => {
   return (

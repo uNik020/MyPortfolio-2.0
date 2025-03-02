@@ -1,5 +1,5 @@
 {
-  "$schema": "https://unpkg.com/jsrepo@1.39.1/schemas/project-config.json",
+  "$schema": "https://unpkg.com/jsrepo@1.41.2/schemas/project-config.json",
   "repos": ["https://reactbits.dev/default"],
   "includeTests": false,
   "watermark": true,

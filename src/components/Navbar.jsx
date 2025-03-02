@@ -64,6 +64,11 @@ const Navbar = () => {
           <div className="flex justify-between items-center w-full px-10 py-6">
             {/* Left Section */}
             <div className="flex flex-col items-start space-y-6">
+            <div 
+              className="relative"
+              onMouseEnter={() => setCursorHovered(true)}
+              onMouseLeave={() => setCursorHovered(false)}
+            >
               <TiltedCard
                 imageSrc="https://i.imgur.com/G38fCks.jpeg"
                 altText="Nikhil Shekhar -N2S"
@@ -72,6 +77,8 @@ const Navbar = () => {
                 containerWidth="280px"
                 imageHeight="250px"
                 imageWidth="200px"
+                containerStyle={{ pointerEvents: 'none' }}
+                imageStyle={{ pointerEvents: 'none' }}
                 rotateAmplitude={12}
                 scaleOnHover={1.1}
                 showMobileWarning={false}
@@ -84,6 +91,7 @@ const Navbar = () => {
                 }
               />
             </div>
+             </div>
 
             {/* Right Section (Navigation Links with Flip Animation) */}
             <div className="flex flex-col mr-32 items-start justify-center gap-4">
@@ -111,13 +119,13 @@ const FlipLink = ({ children, href, setCursorHovered }) => {
       initial="initial"
       whileHover="hovered"
       href={href}
-      className="relative block overflow-hidden whitespace-nowrap text-6xl font-bold bruno-ace-sc"
+      className="relative block overflow-hidden whitespace-nowrap text-5xl font-extrabold bruno-ace-sc"
       onMouseEnter={() => setCursorHovered(true)}
       onMouseLeave={() => setCursorHovered(false)}
       style={{
         cursor: "none", // Hide default cursor
         position: "relative",
-        zIndex: 10, // Keeps link interactive but below the cursor
+        
       }}
     >
       <div>
