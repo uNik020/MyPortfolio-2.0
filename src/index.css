@@ -3,6 +3,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Yesteryear&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Share+Tech+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Shanti&family=Parisienne&family=Audiowide&family=Noto+Sans+JP&family=Dancing+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rampart+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Yatra+One&display=swap');
+
 @import "tailwindcss";
 
 .teko{
@@ -29,6 +35,36 @@
 
 .share {
   font-family: "Share Tech Mono", monospace;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.orbitron {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    font-style: normal;
+}
+
+.jura {
+  font-family: "Jura", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+}
+
+.shanti {
+  font-family: "Shanti", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.rampart {
+  font-family: "Rampart One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.yatra {
+  font-family: "Yatra One", sans-serif;
   font-weight: 400;
   font-style: normal;
 }

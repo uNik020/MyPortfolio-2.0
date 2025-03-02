@@ -5,7 +5,7 @@ import Particles from "../blocks/Backgrounds/Particles/Particles";
 
 const Home = () => {
   return (
-    <div className="h-screen flex">
+    <div id="home" className="h-screen flex">
         {/* Background Animation */}
         <div className="justify-between bg-gradient-to-r from-purple-500 to-blue-500 text-white dark:bg-gradient-to-r dark:from-gray-900 dark:to-gray-500" style={{ width: '100%', height: '100%', position:'absolute' }}>
   <Particles
