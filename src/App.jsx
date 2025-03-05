@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Projects from "./pages/Projects";
+import Footer from "./components/Footer";
 
 const App = () => {
   const { isLoading } = useContext(LoadingContext);
@@ -58,7 +59,8 @@ const App = () => {
               transition={{ delay: 0.8, duration: 0.5 }}
             >
               <Contact />
-            </motion.div>
+              <Footer />
+            </motion.div> 
           </motion.div>
         )}
       </AnimatePresence>

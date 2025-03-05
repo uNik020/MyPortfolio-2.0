@@ -10,6 +10,17 @@ const STAGGER = 0.025;
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [cursorHovered, setCursorHovered] = useState(false); // Track hover state
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const navLinks = [
     { name: "Home", href: "#home" },
@@ -20,7 +31,7 @@ const Navbar = () => {
 
   // Hiding default cursor in Navbar
   useEffect(() => {
-    if (isOpen) {
+    if (isOpen && !isMobile) {
       document.body.style.cursor = "none"; // Hide default cursor
     } else {
       document.body.style.cursor = "default"; // Restore default cursor
@@ -29,12 +40,14 @@ const Navbar = () => {
     return () => {
       document.body.style.cursor = "default"; // Ensure cursor resets on unmount
     };
-  }, [isOpen]);
+  }, [isOpen, isMobile]);
 
   return (
     <>
-      {/* Render Cursor only when isOpen is true */}
-      {isOpen && <Cursor hovered={cursorHovered} className="z-[100]" />}
+      {/* Render Cursor only when isOpen is true and not on mobile */}
+      {isOpen && !isMobile && (
+        <Cursor hovered={cursorHovered} className="z-[100]" />
+      )}
 
       <nav className="fixed top-0 left-0 w-full flex justify-between items-center p-4 z-40">
         {/* Logo */}
@@ -57,44 +70,58 @@ const Navbar = () => {
             isOpen ? { y: "0%", opacity: 1 } : { y: "-100%", opacity: 0 }
           }
           transition={{ duration: 0.4 }}
-          className={`absolute top-0 left-0 w-full h-96 bg-[#e5dce7] flex flex-col items-center justify-center gap-6 text-2xl ${
+          className={`absolute top-0 left-0 w-full min-h-96 bg-[#e5dce7] flex flex-col items-center justify-center gap-6 text-2xl ${
             isOpen ? "visible" : "invisible"
           }`}
         >
-          <div className="flex justify-between items-center w-full px-10 py-6">
+          <div className="flex flex-col md:flex-row justify-between items-center w-full px-6 py-6">
             {/* Left Section */}
-            <div className="flex flex-col items-start space-y-6">
-            <div 
-              className="relative"
-              onMouseEnter={() => setCursorHovered(true)}
-              onMouseLeave={() => setCursorHovered(false)}
-            >
-              <TiltedCard
-                imageSrc="https://i.imgur.com/G38fCks.jpeg"
-                altText="Nikhil Shekhar -N2S"
-                captionText="Nikhil Shekhar -N2S"
-                containerHeight="300px"
-                containerWidth="280px"
-                imageHeight="250px"
-                imageWidth="200px"
-                containerStyle={{ pointerEvents: 'none' }}
-                imageStyle={{ pointerEvents: 'none' }}
-                rotateAmplitude={12}
-                scaleOnHover={1.1}
-                showMobileWarning={false}
-                showTooltip={true}
-                displayOverlayContent={true}
-                overlayContent={
-                  <p className="text-xl cursive text-white m-3 font-bold">
-                    Nikhil
-                  </p>
-                }
-              />
+            <div className="flex flex-row items-center md:items-start space-y-6 justify-between ">
+              <div
+                className="relative"
+                onMouseEnter={() => setCursorHovered(true)}
+                onMouseLeave={() => setCursorHovered(false)}
+              >
+                <TiltedCard
+                  imageSrc="https://i.imgur.com/G38fCks.jpeg"
+                  altText="Nikhil Shekhar -N2S"
+                  captionText="Nikhil Shekhar -N2S"
+                  containerHeight="280px"
+                  containerWidth="250px"
+                  imageHeight="220px"
+                  imageWidth="190px"
+                  containerStyle={{ pointerEvents: "none" }}
+                  imageStyle={{ pointerEvents: "none" }}
+                  rotateAmplitude={12}
+                  scaleOnHover={1.1}
+                  showMobileWarning={false}
+                  showTooltip={true}
+                  displayOverlayContent={true}
+                  overlayContent={
+                    <p className="text-lg md:text-xl cursive text-white m-3 font-bold">
+                      Nikhil
+                    </p>
+                  }
+                />
+              </div>
+              <div className="m-3 flex flex-col justify-evenly gap-1">
+                 <span>
+                  <i class="ri-github-fill ri-2x"></i>
+                </span>
+                 <span>
+                 <i class="ri-linkedin-box-fill ri-2x"></i>
+                </span>
+                 <span>
+                 <i class="ri-mail-line ri-2x"></i>
+                </span>
+                 <span>
+                 <i class="ri-download-line ri-2x"></i>
+                </span>
+              </div>
             </div>
-             </div>
 
             {/* Right Section (Navigation Links with Flip Animation) */}
-            <div className="flex flex-col mr-32 items-start justify-center gap-4">
+            <div className="flex flex-col items-center md:mr-32 md:items-start justify-center gap-4">
               {navLinks.map((link, index) => (
                 <FlipLink
                   key={index}
@@ -119,13 +146,12 @@ const FlipLink = ({ children, href, setCursorHovered }) => {
       initial="initial"
       whileHover="hovered"
       href={href}
-      className="relative block overflow-hidden whitespace-nowrap text-5xl font-extrabold bruno-ace-sc"
+      className="relative block overflow-hidden whitespace-nowrap text-4xl md:text-5xl font-extrabold bruno-ace-sc"
       onMouseEnter={() => setCursorHovered(true)}
       onMouseLeave={() => setCursorHovered(false)}
       style={{
         cursor: "none", // Hide default cursor
         position: "relative",
-        
       }}
     >
       <div>

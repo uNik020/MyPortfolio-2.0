@@ -8,20 +8,6 @@ const About = () => {
 
   return (
     <>
-      <ScrollVelocity
-        texts={[
-          <span className="text-2xl text-black">
-            OPEN TO WORK ⚠
-          </span>,
-          <span className="text-xl text-zinc-800 share">
-            Scroll Up & Down
-          </span>,
-        ]}
-        velocity={100}
-        className="custom-scroll-text bg-amber-200 p-2 text-xl"
-        numCopies={40}
-      />
-
       <section ref={ref} id="about" className="w-full py-16 bg-gray-100 dark:bg-gray-900">
         <div className="max-w-6xl mx-auto px-6">
           {/* Title */}
@@ -85,6 +71,20 @@ const About = () => {
           </div>
         </div>
       </section>
+
+      <ScrollVelocity
+        texts={[
+          <span className="text-xl text-black">
+            OPEN TO WORK ⚠
+          </span>,
+          // <span className="text-xl text-zinc-800 share">
+          //   Scroll Up & Down
+          // </span>,
+        ]}
+        velocity={100}
+        className="custom-scroll-text bg-amber-200 p-2.5 text-3xl"
+        numCopies={40}
+      />
     </>
   );
 };
