@@ -104,7 +104,7 @@ const Navbar = () => {
                   }
                 />
               </div>
-              <div className="m-3 flex flex-col justify-evenly gap-1">
+              <div className="m-3 flex flex-col antialiased text-gray-800 font-extralight justify-evenly gap-1">
                  <span>
                   <i class="ri-github-fill ri-2x"></i>
                 </span>
