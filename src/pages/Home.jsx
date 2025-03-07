@@ -8,7 +8,7 @@ const Home = () => {
     <div id="home" className="h-screen flex">
       {/* Background Animation */}
       <div
-        className="justify-between bg-gradient-to-r text-white bg-gray-900"
+        className="justify-between text-white bg-gray-900"
         style={{ width: "100%", height: "100%", position: "absolute" }}
       >
         {/* <Particles

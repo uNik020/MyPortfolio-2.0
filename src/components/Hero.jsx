@@ -4,7 +4,7 @@ import RotatingText from "../blocks/TextAnimations/RotatingText/RotatingText";
 
 const Hero = () => {
   return (
-    <section className="w-full h-screen flex flex-col justify-center items-center px-6 sm:px-12 md:flex-row md:justify-start md:px-16 lg:px-24">
+    <section className="w-full h-full flex flex-col justify-center items-center px-6 sm:px-12 md:flex-row md:justify-start md:px-16 lg:px-24">
       {/* Animated Text */}
       <div className="text-white z-10 text-center md:text-left">
         <motion.h1

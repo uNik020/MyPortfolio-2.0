@@ -1,80 +1,71 @@
-import React, { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useInView } from "react-intersection-observer";
-import ScrollVelocity from "../blocks/TextAnimations/ScrollVelocity/ScrollVelocity.jsx";
+import React, { useRef, useEffect } from "react";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 
 const About = () => {
-  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.3 });
+  const scrollContainer = useRef(null);
+  const sectionsWrapper = useRef(null);
 
-  // Reference for scrolling
-  const scrollRef = useRef(null);
-  const containerRef = useRef(null);
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
 
-  // Measure the scroll progress within the "About" section
-  const { scrollYProgress } = useScroll({
-    target: scrollRef,
-    offset: ["start start", "end start"],
-  });
+    const sections = gsap.utils.toArray(".about-section");
 
-  // Get the number of sections to scroll horizontally
-  const totalSections = 4; // Adjust this if you add more sections
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", `-${100 * (totalSections - 1)}%`]);
+    // Get actual width of all sections combined
+    let totalWidth = sectionsWrapper.current.scrollWidth;
+    let viewportWidth = window.innerWidth;
+
+    gsap.to(sectionsWrapper.current, {
+      x: -(totalWidth - viewportWidth), // Move precisely to the last section
+      ease: "power1.out",
+      scrollTrigger: {
+        trigger: scrollContainer.current,
+        start: "top top",
+        end: "+=" + (totalWidth - viewportWidth), // Fixes empty space issue
+        scrub: 1,
+        pin: true,
+        anticipatePin: 1,
+      },
+    });
+
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, []);
 
   return (
-    <>
-      <section
-        ref={scrollRef}
-        id="about"
-        className="relative w-full h-[105vh] py-16 bg-gray-100 dark:bg-gray-900 overflow-hidden"
-      >
-        <div ref={containerRef} className="relative w-full h-full">
-          {/* Title */}
-          <motion.h2
-            initial={{ opacity: 0, y: -50 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8 }}
-            className="text-4xl md:text-5xl mb-2 font-extrabold bruno-ace-sc text-center bg-gray-900 text-white"
-          >
-            About Me
-          </motion.h2>
-
-          {/* Fake Scrolling Container */}
-          <div className="relative w-full h-full flex flex-col justify-center">
-            <motion.div
-              className="flex h-[83vh] gap-4 will-change-transform"
-              style={{ x }}
-            >
-              <div className="bg-amber-300 min-w-screen rounded-3xl p-8 flex flex-col justify-center items-center">
-                <h2 className="text-4xl font-bold">EDUCATION</h2>
-                <p className="text-xl mt-2">B.Tech in Computer Science - XYZ University</p>
-              </div>
-              <div className="bg-blue-300 min-w-screen rounded-3xl p-8 flex flex-col justify-center items-center">
-                <h2 className="text-4xl font-bold">EXPERIENCE</h2>
-                <p className="text-xl mt-2">Software Developer Intern at ABC Tech</p>
-              </div>
-              <div className="bg-rose-300 min-w-screen rounded-3xl p-8 flex flex-col justify-center items-center">
-                <h2 className="text-4xl font-bold">CERTIFICATION</h2>
-                <p className="text-xl mt-2">Certified React Developer - Udemy</p>
-              </div>
-              <div className="bg-emerald-400 min-w-screen rounded-3xl p-8 flex flex-col justify-center items-center">
-                <h2 className="text-4xl font-bold">HOBBIES</h2>
-                <p className="text-xl mt-2">UI/UX Designing, Photography, Chess</p>
-              </div>
-            </motion.div>
-          </div>
+    <section
+      ref={scrollContainer}
+      id="about"
+      className="relative w-[866vh] h-[100vh] bg-gray-900 overflow-hidden"
+    >
+      <div ref={sectionsWrapper} className="flex h-full">
+        {/* Section 1 */}
+        <div className="about-section w-screen flex justify-center items-center bg-amber-300 rounded-3xl p-8">
+          <h2 className="text-9xl text-center font-extrabold rampart opacity-15">
+            ABOUT ME
+          </h2>
         </div>
-      </section>
-
-      {/* Scrolling Text Animation */}
-      <ScrollVelocity
-        texts={[
-          <span className="text-xl text-black">OPEN TO WORK ⚠</span>,
-        ]}
-        velocity={100}
-        className="custom-scroll-text bg-amber-200 p-2.5 text-3xl"
-        numCopies={40}
-      />
-    </>
+        {/* Section 2 */}
+        <div className="about-section w-screen flex justify-center items-center bg-blue-300 rounded-3xl p-8">
+          <h2 className="text-9xl text-center font-extrabold rampart opacity-15">
+            EXPERIENCE
+          </h2>
+        </div>
+        {/* Section 3 */}
+        <div className="about-section w-screen flex justify-center items-center bg-rose-300 rounded-3xl p-8">
+          <h2 className="text-9xl text-center font-extrabold rampart opacity-15">
+            CERTIFICATION
+          </h2>
+        </div>
+        {/* Section 4 */}
+        <div className="about-section w-screen flex justify-center items-center bg-emerald-400 rounded-3xl p-8">
+          <h2 className="text-9xl text-center font-extrabold rampart opacity-15">
+            HOBBIES
+          </h2>
+        </div>
+      </div>
+    </section>
   );
 };
 
