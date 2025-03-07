@@ -40,30 +40,29 @@ const About = () => {
       className="relative w-[866vh] h-[100vh] bg-gray-900 overflow-hidden"
     >
       <div ref={sectionsWrapper} className="flex h-full">
-        {/* Section 1 */}
-        <div className="about-section w-screen flex justify-center items-center bg-amber-300 rounded-3xl p-8">
-          <h2 className="text-9xl text-center font-extrabold rampart opacity-15">
-            ABOUT ME
-          </h2>
-        </div>
-        {/* Section 2 */}
-        <div className="about-section w-screen flex justify-center items-center bg-blue-300 rounded-3xl p-8">
-          <h2 className="text-9xl text-center font-extrabold rampart opacity-15">
-            EXPERIENCE
-          </h2>
-        </div>
-        {/* Section 3 */}
-        <div className="about-section w-screen flex justify-center items-center bg-rose-300 rounded-3xl p-8">
-          <h2 className="text-9xl text-center font-extrabold rampart opacity-15">
-            CERTIFICATION
-          </h2>
-        </div>
-        {/* Section 4 */}
-        <div className="about-section w-screen flex justify-center items-center bg-emerald-400 rounded-3xl p-8">
-          <h2 className="text-9xl text-center font-extrabold rampart opacity-15">
-            HOBBIES
-          </h2>
-        </div>
+        {/* Sections */}
+        {["ABOUT ME", "EXPERIENCE", "CERTIFICATION", "HOBBIES"].map(
+          (title, index) => (
+            <div
+              key={index}
+              className="about-section w-screen flex flex-col justify-center items-center bg-gray-900 rounded-3xl p-10"
+            >
+              {/* Background Faded Title */}
+              <h2 className="text-9xl text-center font-extrabold fixed rampart text-white opacity-5">
+                {title}
+              </h2>
+              {/* Content */}
+              <div className="text-center text-gray-300 dark:text-gray-50">
+                <p className="text-lg mt-4 max-w-2xl">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                  vel eleifend ligula. Nullam auctor, purus eget malesuada
+                  commodo, velit purus dictum diam, at finibus velit enim vel
+                  nunc.
+                </p>
+              </div>
+            </div>
+          )
+        )}
       </div>
     </section>
   );
