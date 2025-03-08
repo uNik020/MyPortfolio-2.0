@@ -79,12 +79,12 @@ const About = () => {
                   problems and creating seamless user experiences. I’m eager to
                   grow as a Full Stack Developer and work on innovative projects
                   that push my skills further. Let’s connect!"
-                    speed={100}
-                    maxIterations={10}
-                    characters="x@#4%&*^@!24FXa"
+                    speed={5}
+                    characters="x@#4%&*^@"
                     className="revealed"
+                    sequential="true"
                     encryptedClassName="encrypted"
-                    revealDirection="end"
+                    revealDirection="start"
                   />
                 </p>
               </div>
