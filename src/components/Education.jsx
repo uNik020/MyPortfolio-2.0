@@ -39,12 +39,12 @@ const Education = () => {
             {/* Background hover effect */}
             <div className="absolute bg-cover inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 group-hover:opacity-30 transition-all duration-500"></div>
 
-            <h3 className="text-md font-semibold group-hover:text-blue-700 transition-all duration-300">
+            <h3 className="text-md jura font-bold group-hover:text-blue-700 transition-all duration-300">
               {edu.degree}
             </h3>
-            <p className="mt-1 text-sm">{edu.institute}</p>
+            <p className="mt-1 jura text-sm">{edu.institute}</p>
             <motion.p
-              className="text-sm font-semibold mt-2 opacity-0 group-hover:opacity-100 transition-all duration-500"
+              className="text-sm jura font-bold mt-2 opacity-0 group-hover:opacity-100 transition-all duration-500"
             >
               {edu.year} | {edu.percentage}
             </motion.p>

@@ -35,7 +35,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5 }}
-          className="text-base sm:text-lg md:text-xl mt-4 font-thin max-w-lg mx-auto md:mx-0"
+          className="text-base jura sm:text-lg md:text-xl mt-4 font-thin max-w-lg mx-auto md:mx-0"
         >
           I build amazing web experiences with creativity & performance.
         </motion.p>
@@ -46,7 +46,7 @@ const Hero = () => {
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.8, delay: 1 }}
-          className="mt-6 inline-block px-5 mx-0.5 py-3 bg-yellow-400 text-gray-900 font-bold rounded-lg shadow-lg hover:scale-105 transition"
+          className="mt-6 jura inline-block px-5 mx-0.5 py-3 bg-yellow-400 text-gray-900 font-bold rounded-lg shadow-lg hover:scale-105 transition"
         >
           View My Work
         </motion.a>
@@ -55,7 +55,7 @@ const Hero = () => {
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.8, delay: 1 }}
-          className="mt-6 inline-block mx-0.5 px-5 py-3 text-yellow-400 bg-gray-900 border-2 font-bold rounded-lg shadow-lg hover:scale-105 transition"
+          className="mt-6 jura inline-block mx-0.5 px-5 py-3 text-yellow-400 bg-gray-900 border-2 font-bold rounded-lg shadow-lg hover:scale-105 transition"
         >
           Download CV
         </motion.a>

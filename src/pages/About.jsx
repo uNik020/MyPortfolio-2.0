@@ -3,6 +3,7 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Education from "../components/Education";
 import TiltedCard from "../blocks/Components/TiltedCard/TiltedCard.jsx";
+import DecryptedText from "../blocks/TextAnimations/DecryptedText/DecryptedText.jsx";
 
 const About = () => {
   const scrollContainer = useRef(null);
@@ -49,12 +50,14 @@ const About = () => {
           </h2>
           <div className="flex flex-row ">
             <div className="p-4 m-2 backdrop-brightness-80 h-[80vh] rounded-4xl max-w-2/3">
-              <h2 className="text-white hover:text-amber-300 orbitron text-4xl text-center ">About Me</h2>
+              <h2 className="text-white hover:text-amber-300 orbitron text-4xl text-center ">
+                About Me
+              </h2>
               <div className="flex flex-row">
                 <TiltedCard
-                  imageSrc="https://i.scdn.co/image/ab67616d0000b273d9985092cd88bffd97653b58"
+                  imageSrc="https://i.imgur.com/Sq9puHq.jpeg"
                   altText="Kendrick Lamar - GNX Album Cover"
-                  captionText="NIKHIL "
+                  captionText="Hover & move"
                   containerHeight="350px"
                   containerWidth="400px"
                   imageHeight="300px"
@@ -64,10 +67,25 @@ const About = () => {
                   showMobileWarning={false}
                   showTooltip={true}
                   displayOverlayContent={true}
-                  overlayContent={<p className="marker text-2xl p-4">Nikhil</p>}
+                  overlayContent={
+                    <p className="marker text-2xl text-white p-4">Nikhil</p>
+                  }
                 />
-                <p className="text-lg p-4 mt-4 text-gray-300">
-                I’m Nikhil Shekhar, a passionate Software Developer with a strong foundation in web development, Java, and full-stack technologies. I specialize in building responsive, user-friendly applications using React, Angular, Spring Boot, and MySQL. My projects, like EstateEase (real estate platform) and Stocker (stock portfolio tracker), showcase my expertise in frontend animations, APIs, and scalable solutions. With a keen eye for detail and a drive for innovation, I love solving complex problems and creating seamless digital experiences. I'm always eager to learn and collaborate on impactful projects. Let’s connect and build something amazing!
+                <p className="text-lg p-4 mt-4 jura text-gray-300">
+                  <DecryptedText
+                    text="I’m Nikhil Shekhar, a Software Developer skilled in Java,
+                  React, Angular, Spring Boot, and MySQL. Passionate about
+                  building scalable web applications, I enjoy solving complex
+                  problems and creating seamless user experiences. I’m eager to
+                  grow as a Full Stack Developer and work on innovative projects
+                  that push my skills further. Let’s connect!"
+                    speed={100}
+                    maxIterations={10}
+                    characters="x@#4%&*^@!24FXa"
+                    className="revealed"
+                    encryptedClassName="encrypted"
+                    revealDirection="end"
+                  />
                 </p>
               </div>
             </div>
