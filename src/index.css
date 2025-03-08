@@ -11,6 +11,10 @@
 
 @import "tailwindcss";
 
+body{
+  background: #101828;
+}
+
 .teko{
     font-family: 'Teko', sans-serif;
 }
