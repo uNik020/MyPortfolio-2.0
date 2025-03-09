@@ -4,51 +4,19 @@ import gsap from "gsap";
 const experiences = [
   {
     id: 1,
-    title: "Java Developer Intern",
-    company: "XYZ Solutions",
-    date: "Jan 2024 - Apr 2024",
+    title: "SDE Intern",
+    company: "Bluestock fintech",
+    date: "Dec 2024 - Jan 2025",
     description:
-      "Worked on building scalable backend APIs and optimized database queries for better performance.",
+      "Worked on A Stock Market Data displaying website of 100 companies using PHP and mysql.",
   },
   {
     id: 2,
-    title: "React Developer Intern",
-    company: "ABC Tech",
-    date: "May 2024 - Aug 2024",
+    title: "MERN Stack Intern",
+    company: "Infotact Solutions",
+    date: "Jan 2025 - March 2025",
     description:
-      "Developed reusable UI components and optimized frontend performance.",
-  },
-  {
-    id: 3,
-    title: "Full Stack Developer Intern",
-    company: "DEF Corp",
-    date: "Sep 2024 - Dec 2024",
-    description:
-      "Built a real-time dashboard integrating backend APIs with React frontend.",
-  },
-  {
-    id: 4,
-    title: "Software Engineer",
-    company: "GHI Innovations",
-    date: "Jan 2025 - Present",
-    description:
-      "Building microservices and enhancing cloud-based infrastructure.",
-  },
-  {
-    id: 5,
-    title: "Frontend Developer",
-    company: "JKL Technologies",
-    date: "Apr 2024 - Present",
-    description:
-      "Designed interactive UI components and improved accessibility.",
-  },
-  {
-    id: 6,
-    title: "Backend Developer",
-    company: "MNO Systems",
-    date: "Jul 2024 - Present",
-    description:
-      "Developed RESTful APIs and improved database query efficiency.",
+      "Developed a Full stack MERN based project -AI Job Portal with Team .",
   },
 ];
 
@@ -63,13 +31,11 @@ const Experience = () => {
   );
 
   useEffect(() => {
-    gsap.from(".exp-card", {
-      opacity: 0,
-      y: 50,
-      stagger: 0.2,
-      duration: 1,
-      ease: "power2.out",
-    });
+    gsap.fromTo(
+      ".exp-card",
+      { opacity: 0, y: 50 }, // Initial state
+      { opacity: 1, y: 0, stagger: 0.3, duration: 1, ease: "power2.out" } // Target state
+    );
   }, [currentPage]);
 
   return (
@@ -96,7 +62,7 @@ const Experience = () => {
       </div>
 
       {/* Pagination Controls */}
-      <div className="flex space-x-4 absolute">
+      <div className="flex space-x-4 justify-center mt-5">
         <button
           className={`px-4 py-2 rounded-lg text-white bg-gray-700 hover:bg-gray-600 ${
             currentPage === 0 && "opacity-50 cursor-not-allowed"
