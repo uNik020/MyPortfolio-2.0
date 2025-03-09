@@ -106,16 +106,16 @@ const Navbar = () => {
               </div>
               <div className="m-3 flex flex-col antialiased text-gray-800 font-extralight justify-evenly gap-1">
                  <span>
-                  <i class="ri-github-fill ri-2x"></i>
+                  <i className="ri-github-fill ri-2x"></i>
                 </span>
                  <span>
-                 <i class="ri-linkedin-box-fill ri-2x"></i>
+                 <i className="ri-linkedin-box-fill ri-2x"></i>
                 </span>
                  <span>
-                 <i class="ri-mail-line ri-2x"></i>
+                 <i className="ri-mail-line ri-2x"></i>
                 </span>
                  <span>
-                 <i class="ri-download-line ri-2x"></i>
+                 <i className="ri-download-line ri-2x"></i>
                 </span>
               </div>
             </div>
