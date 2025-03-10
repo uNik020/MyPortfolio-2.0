@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Education from "../components/Education";
@@ -9,49 +9,65 @@ import Experience from "./Experience.jsx";
 const About = () => {
   const scrollContainer = useRef(null);
   const sectionsWrapper = useRef(null);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    const sections = gsap.utils.toArray(".about-section");
+    // Check if screen size is mobile/tablet
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth <= 1024);
+    };
 
-    // Get actual width of all sections combined
-    let totalWidth = sectionsWrapper.current.scrollWidth;
-    let viewportWidth = window.innerWidth;
+    checkScreenSize();
+    window.addEventListener("resize", checkScreenSize);
 
-    gsap.to(sectionsWrapper.current, {
-      x: -(totalWidth - viewportWidth), // Move precisely to the last section
-      ease: "power1.out",
-      scrollTrigger: {
-        trigger: scrollContainer.current,
-        start: "top top",
-        end: "+=" + (totalWidth - viewportWidth), // Fixes empty space issue
-        scrub: 1,
-        pin: true,
-        anticipatePin: 1,
-      },
-    });
+    if (!isMobile) {
+      const sections = gsap.utils.toArray(".about-section");
+
+      let totalWidth = sectionsWrapper.current.scrollWidth;
+      let viewportWidth = window.innerWidth;
+
+      gsap.to(sectionsWrapper.current, {
+        x: -(totalWidth - viewportWidth),
+        ease: "power1.out",
+        scrollTrigger: {
+          trigger: scrollContainer.current,
+          start: "top top",
+          end: "+=" + (totalWidth - viewportWidth),
+          scrub: 1,
+          pin: true,
+          anticipatePin: 1,
+        },
+      });
+    }
 
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      window.removeEventListener("resize", checkScreenSize);
     };
-  }, []);
+  }, [isMobile]);
 
   return (
     <section
       ref={scrollContainer}
       id="about"
-      className="relative w-[866vh] h-[100vh] bg-gray-900 overflow-hidden"
+      className="relative w-full h-[100vh] bg-gray-900 overflow-hidden"
     >
-      <div ref={sectionsWrapper} className="flex h-full">
+      <div
+        ref={sectionsWrapper}
+        className={`${
+          isMobile ? "flex flex-col overflow-y-auto" : "flex flex-row"
+        } h-full`}
+      >
         {/* Section 1 */}
         <div className="about-section w-screen flex justify-center items-center bg-gray-900 rounded-3xl p-8">
           <h2 className="text-9xl select-none text-center font-extrabold rampart fixed text-white opacity-5">
             ABOUT ME
           </h2>
-          <div className="flex flex-row ">
+          <div className="flex flex-row">
             <div className="p-4 m-2 backdrop-brightness-80 h-[80vh] rounded-4xl max-w-2/3">
-              <h2 className="text-white hover:text-amber-300 orbitron text-4xl text-center ">
+              <h2 className="text-white hover:text-amber-300 orbitron text-4xl text-center">
                 About Me
               </h2>
               <div className="flex flex-row">
@@ -93,8 +109,10 @@ const About = () => {
             <Education />
           </div>
         </div>
+
         {/* Section 2 */}
-          <Experience/>
+        <Experience />
+
         {/* Section 3 */}
         <div className="about-section w-screen flex justify-center items-center bg-gray-900 rounded-3xl p-8">
           <h2 className="text-9xl select-none text-center font-extrabold rampart fixed text-white opacity-5">
@@ -108,6 +126,7 @@ const About = () => {
             </p>
           </div>
         </div>
+
         {/* Section 4 */}
         <div className="about-section w-screen flex justify-center items-center bg-gray-900 rounded-3xl p-8">
           <h2 className="text-9xl select-none text-center font-extrabold rampart fixed text-white opacity-5">
