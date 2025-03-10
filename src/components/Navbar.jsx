@@ -49,7 +49,7 @@ const Navbar = () => {
         <Cursor hovered={cursorHovered} className="z-[100]" />
       )}
 
-      <nav className="fixed top-0 left-0 w-full flex justify-between items-center p-4 z-40">
+      <nav className="fixed top-0 left-0 w-screen flex justify-between items-center p-4 z-40">
         {/* Logo */}
         <div className="ml-4 w-10 h-10 z-40">
           <img src="\main logo.png" alt="logo" />
