@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Education from "../components/Education";
@@ -9,20 +9,12 @@ import Experience from "./Experience.jsx";
 const About = () => {
   const scrollContainer = useRef(null);
   const sectionsWrapper = useRef(null);
-  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    // Check if screen size is mobile/tablet
-    const checkScreenSize = () => {
-      setIsMobile(window.innerWidth <= 1024);
-    };
-
-    checkScreenSize();
-    window.addEventListener("resize", checkScreenSize);
-
-    if (!isMobile) {
+    if (window.innerWidth >= 768) {
+      // Only apply horizontal scroll effect for desktop
       const sections = gsap.utils.toArray(".about-section");
 
       let totalWidth = sectionsWrapper.current.scrollWidth;
@@ -44,33 +36,31 @@ const About = () => {
 
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-      window.removeEventListener("resize", checkScreenSize);
     };
-  }, [isMobile]);
+  }, []);
 
   return (
     <section
       ref={scrollContainer}
       id="about"
-      className="relative w-full h-[100vh] bg-gray-900 overflow-hidden"
+      className="relative w-screen h-auto min-h-[100vh] bg-gray-900 overflow-x-hidden"
     >
+      {/* Wrapper to handle horizontal scrolling on desktop */}
       <div
         ref={sectionsWrapper}
-        className={`${
-          isMobile ? "flex flex-col overflow-y-auto" : "flex flex-row"
-        } h-full`}
+        className="flex md:flex-row flex-col md:h-full w-full"
       >
-        {/* Section 1 */}
-        <div className="about-section w-screen flex justify-center items-center bg-gray-900 rounded-3xl p-8">
+        {/* Section 1: About Me */}
+        <div className="about-section w-screen flex flex-col md:flex-row justify-center items-center bg-gray-900 rounded-3xl p-8">
           <h2 className="text-9xl select-none text-center font-extrabold rampart fixed text-white opacity-5">
             ABOUT ME
           </h2>
-          <div className="flex flex-row">
-            <div className="p-4 m-2 backdrop-brightness-80 h-[80vh] rounded-4xl max-w-2/3">
+          <div className="flex flex-col md:flex-row w-full items-center">
+            <div className="p-4 m-2 backdrop-brightness-80 rounded-4xl w-full md:w-2/3">
               <h2 className="text-white hover:text-amber-300 orbitron text-4xl text-center">
                 About Me
               </h2>
-              <div className="flex flex-row">
+              <div className="flex flex-col md:flex-row items-center">
                 <TiltedCard
                   imageSrc="https://i.imgur.com/Sq9puHq.jpeg"
                   altText="Kendrick Lamar - GNX Album Cover"
@@ -106,14 +96,18 @@ const About = () => {
                 </p>
               </div>
             </div>
-            <Education />
           </div>
         </div>
 
-        {/* Section 2 */}
+        {/* Section 2: Education (Now aligned below About Me in mobile) */}
+        <div className="about-section w-screen flex justify-center items-center bg-gray-900 rounded-3xl p-8">
+          <Education />
+        </div>
+
+        {/* Section 3: Experience */}
         <Experience />
 
-        {/* Section 3 */}
+        {/* Section 4: Certification */}
         <div className="about-section w-screen flex justify-center items-center bg-gray-900 rounded-3xl p-8">
           <h2 className="text-9xl select-none text-center font-extrabold rampart fixed text-white opacity-5">
             CERTIFICATION
@@ -127,7 +121,7 @@ const About = () => {
           </div>
         </div>
 
-        {/* Section 4 */}
+        {/* Section 5: Hobbies */}
         <div className="about-section w-screen flex justify-center items-center bg-gray-900 rounded-3xl p-8">
           <h2 className="text-9xl select-none text-center font-extrabold rampart fixed text-white opacity-5">
             HOBBIES
