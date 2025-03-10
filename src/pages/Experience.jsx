@@ -8,24 +8,35 @@ const experiences = [
     company: "Bluestock fintech",
     date: "Dec 2024 - Jan 2025",
     description:
-      "Worked on A Stock Market Data displaying website of 100 companies using PHP and mysql.",
+      "Worked on A Stock Market Data displaying website of 100 companies using PHP and MySQL.",
   },
   {
     id: 2,
     title: "MERN Stack Intern",
     company: "Infotact Solutions",
     date: "Jan 2025 - March 2025",
-    description:
-      "Developed a Full stack MERN based project -AI Job Portal with Team .",
+    description: "Developed a Full stack MERN-based project - AI Job Portal with Team.",
+  },
+];
+
+// Add the default card dynamically at the end
+const experiencesWithDefault = [
+  ...experiences,
+  {
+    id: "default",
+    title: "More Experiences Coming Soon...",
+    company: "",
+    date: "",
+    description: "Stay tuned! More experiences will be added as I continue my journey.",
   },
 ];
 
 const Experience = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const itemsPerPage = 3;
-  const totalPages = Math.ceil(experiences.length / itemsPerPage);
+  const totalPages = Math.ceil(experiencesWithDefault.length / itemsPerPage);
 
-  const currentExperiences = experiences.slice(
+  const currentExperiences = experiencesWithDefault.slice(
     currentPage * itemsPerPage,
     (currentPage + 1) * itemsPerPage
   );
@@ -45,17 +56,17 @@ const Experience = () => {
       </h2>
 
       {/* Experience Grid */}
-        <div className="grid grid-cols-3 gap-x-20 gap-y-0 mt-12 w-full max-w-5xl justify-center">
+      <div className="grid grid-cols-3 gap-x-20 gap-y-0 mt-12 w-full max-w-5xl justify-center">
         {currentExperiences.map((exp, index) => (
           <div
             key={exp.id}
-            className={`exp-card relative w-[300px] backdrop-brightness-75 rounded-xl shadow-xl p-4 text-center text-white transition-transform duration-300 hover:scale-105
+            className={`exp-card relative w-[300px] backdrop-brightness-80 rounded-xl shadow-xl p-4 text-center text-white transition-transform duration-300 hover:scale-105
               ${index === 2 ? "col-start-3 row-start-1" : index === 1 ? "col-start-2 row-start-2" : "col-start-1 row-start-1"}
             `}
           >
             <h3 className="text-xl font-bold orbitron">{exp.title}</h3>
-            <h4 className="text-md jura text-amber-400">{exp.company}</h4>
-            <p className="text-sm jura text-gray-300 mt-2">{exp.date}</p>
+            {exp.company && <h4 className="text-md jura text-amber-400">{exp.company}</h4>}
+            {exp.date && <p className="text-sm jura text-gray-300 mt-2">{exp.date}</p>}
             <p className="text-gray-400 jura mt-2">{exp.description}</p>
           </div>
         ))}
@@ -64,7 +75,7 @@ const Experience = () => {
       {/* Pagination Controls */}
       <div className="flex space-x-4 justify-center mt-5">
         <button
-          className={`px-4 py-2 rounded-lg text-white bg-gray-700 hover:bg-gray-600 ${
+          className={`px-4 py-2 rounded-lg jura text-white bg-gray-700 hover:bg-gray-600 hover:text-amber-300 ${
             currentPage === 0 && "opacity-50 cursor-not-allowed"
           }`}
           onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 0))}
@@ -73,7 +84,7 @@ const Experience = () => {
           Previous
         </button>
         <button
-          className={`px-4 py-2 rounded-lg text-white bg-gray-700 hover:bg-gray-600 ${
+          className={`px-4 py-2 rounded-lg jura text-white bg-gray-700 hover:bg-gray-600 hover:text-amber-300 ${
             currentPage === totalPages - 1 && "opacity-50 cursor-not-allowed"
           }`}
           onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages - 1))}
