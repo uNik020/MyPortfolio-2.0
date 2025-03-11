@@ -7,16 +7,7 @@ const Footer = () => {
       {/* Parallax Effect */}
       <div className="absolute inset-0 bg-fixed bg-cover bg-center" style={{ backgroundImage: "url('/footer-bg.jpg')" }}></div>
       
-      <div className="relative flex flex-col items-center py-20 px-6 text-center">
-        {/* Name Display */}
-        <motion.h1 
-          initial={{ opacity: 0, y: 20 }} 
-          animate={{ opacity: 1, y: 0 }} 
-          transition={{ duration: 1 }}
-          className="text-[9vw] orbitron font-extrabold tracking-wide mb-6"
-        >
-          NIKHIL SHEKHAR
-        </motion.h1>
+      <div className="relative flex flex-col items-center py-6 px-6 text-center">
 
         {/* Navigation Links */}
         <motion.div 
@@ -29,7 +20,7 @@ const Footer = () => {
             <motion.a
               key={index}
               href={`#${link.toLowerCase()}`}
-              whileHover={{ scale: 1.1, color: "#00ADB5" }}
+              whileHover={{ scale: 1.1, color: "#FFD230" }}
               transition={{ duration: 0.3 }}
               className="cursor-pointer"
             >
@@ -50,7 +41,7 @@ const Footer = () => {
               href={link}
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ scale: 1.2, rotate: 10, color: "#00ADB5" }}
+              whileHover={{ scale: 1.2, rotate: 10, color: "#FFD230" }}
               transition={{ duration: 0.3 }}
               className="text-3xl"
             >
@@ -62,14 +53,23 @@ const Footer = () => {
           <motion.a
             href="/resume.pdf"
             download
-            whileHover={{ scale: 1.1, backgroundColor: "#00ADB5" }}
+            whileHover={{ scale: 1.1, backgroundColor: "#FFD230" }}
             transition={{ duration: 0.3 }}
-            className="flex items-center gap-2 px-6 py-2 text-lg font-medium border-2 border-white rounded-lg hover:bg-white hover:text-black"
+            className="flex items-center gap-2 px-6 py-2 text-lg text-black font-medium border-2 border-white rounded-lg hover:bg-white hover:text-black"
           >
             <FaDownload /> Download CV
           </motion.a>
         </motion.div>
       </div>
+      {/* Name Display */}
+      <motion.h1 
+          initial={{ opacity: 0, y: 20 }} 
+          animate={{ opacity: 1, y: 0 }} 
+          transition={{ duration: 1 }}
+          className="text-[10vw] font-extrabold text-center orbitron"
+        >
+          NIKHIL SHEKHAR
+        </motion.h1>
     </div>
   );
 };
