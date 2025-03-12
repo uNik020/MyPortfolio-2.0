@@ -7,10 +7,10 @@ const Home = () => {
     <div
       id="home"
       className="relative w-full h-screen flex items-center justify-center overflow-hidden bg-cover bg-center"
-      style={{ backgroundImage: "url('https://i.imgur.com/PM2BxlA.jpeg')" }} // Replace with your actual image path
+      style={{ backgroundImage: "url('https://i.imgur.com/PM2BxlA.jpeg')" }} 
     >
       {/* Background Animation */}
-      <div className="absolute inset-0 z-10 bg-gray-900/50"> {/* Adding slight overlay for better visibility */}
+      <div className="absolute inset-0 z-10">
         <Ballpit
           count={50}
           gravity={0.5}
