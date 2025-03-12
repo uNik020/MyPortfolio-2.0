@@ -4,9 +4,13 @@ import Ballpit from "../blocks/Backgrounds/Ballpit/Ballpit";
 
 const Home = () => {
   return (
-    <div id="home" className="relative w-full h-screen flex items-center justify-center overflow-hidden">
+    <div
+      id="home"
+      className="relative w-full h-screen flex items-center justify-center overflow-hidden bg-cover bg-center"
+      style={{ backgroundImage: "url('https://i.imgur.com/PM2BxlA.jpeg')" }} // Replace with your actual image path
+    >
       {/* Background Animation */}
-      <div className="absolute inset-0 bg-gray-900">
+      <div className="absolute inset-0 z-10 bg-gray-900/50"> {/* Adding slight overlay for better visibility */}
         <Ballpit
           count={50}
           gravity={0.5}
