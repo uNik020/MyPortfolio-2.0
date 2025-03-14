@@ -35,21 +35,20 @@ const Certifications = () => {
 
       {/* Circular Gallery for Certificates */}
       <div className="relative w-full h-screen bg-cover flex justify-center">
-      <CircularGallery
-  bend={0}
-  textColor="#ffffff"
-  borderRadius={0.2}
-  itemWidth={450}
-  itemHeight={320}
-  spacing={80}
-  visibleItems={3}
-  items={certificates.map((cert) => ({
-    image: cert.image,
-    text: `${cert.title}`, // Combine title and description
-    link: cert.link,
-  }))}
-/>
-
+        <CircularGallery
+          bend={0}
+          textColor="#ffffff"
+          borderRadius={0.2}
+          itemWidth={450}
+          itemHeight={320}
+          spacing={80}
+          visibleItems={3}
+          items={certificates.map((cert) => ({
+            image: cert.image,
+            text: `${cert.title}`, // Combine title and description
+            link: cert.link,
+          }))}
+        />
       </div>
     </div>
   );
