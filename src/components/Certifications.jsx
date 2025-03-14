@@ -36,7 +36,7 @@ const Certifications = () => {
       {/* Circular Gallery for Certificates */}
       <div className="relative w-full h-screen bg-cover flex justify-center">
       <CircularGallery
-  bend={2}
+  bend={0}
   textColor="#ffffff"
   borderRadius={0.2}
   itemWidth={450}
