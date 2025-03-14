@@ -35,20 +35,21 @@ const Certifications = () => {
 
       {/* Circular Gallery for Certificates */}
       <div className="relative w-full h-screen bg-cover flex justify-center">
-        <CircularGallery
-          bend={0} // Adjusted curvature for better alignment
-          textColor="#ffffff"
-          borderRadius={0.1} // Slight rounding for a clean look
-          itemWidth={900} // Adjusting card width
-          itemHeight={600} // Adjusting card height for readability
-          spacing={50} // Giving proper space between items
-          items={certificates.map((cert) => ({
-            image: cert.image,
-            title: cert.title,
-            description: cert.description,
-            link: cert.link,
-          }))}
-        />
+      <CircularGallery
+  bend={2}
+  textColor="#ffffff"
+  borderRadius={0.2}
+  itemWidth={450}
+  itemHeight={320}
+  spacing={80}
+  visibleItems={3}
+  items={certificates.map((cert) => ({
+    image: cert.image,
+    text: `${cert.title}`, // Combine title and description
+    link: cert.link,
+  }))}
+/>
+
       </div>
     </div>
   );
