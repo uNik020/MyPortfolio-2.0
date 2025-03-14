@@ -6,7 +6,7 @@ const Certifications = () => {
     {
       id: 1,
       title: "SDE Intern",
-      description: "Bluestock Fintech - Dec 2024-Jan 2025",
+      description: "Bluestock Fintech - Dec 2024- Jan 2025",
       image: "https://i.imgur.com/JS9Dyzo.jpeg",
       link: "https://imgur.com/a/Z4rA123",
     },
@@ -16,13 +16,6 @@ const Certifications = () => {
       description: "Edubridge Pvt. Ltd. - May 2024 - Sept 2024",
       image: "https://i.imgur.com/RTfPe9a.jpeg",
       link: "https://imgur.com/a/full-stack-java-development-certificate-HSvfkLC",
-    },
-    {
-      id: 3,
-      title: "Web Development Basic to Advance",
-      description: "Coursera - Dec 2022-Jan 2023",
-      image: "https://i.imgur.com/fnrFBMo.jpeg",
-      link: "https://imgur.com/a/coursera-certificate-zzRSuc5",
     },
   ];
 
