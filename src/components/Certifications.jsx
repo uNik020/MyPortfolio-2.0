@@ -17,6 +17,13 @@ const Certifications = () => {
       image: "https://i.imgur.com/RTfPe9a.jpeg",
       link: "https://imgur.com/a/full-stack-java-development-certificate-HSvfkLC",
     },
+    {
+      id: 3,
+      title: "Web Development Basic to Advance",
+      description: "Coursera - Dec 2022-Jan 2023",
+      image: "https://i.imgur.com/fnrFBMo.jpeg",
+      link: "https://imgur.com/a/coursera-certificate-zzRSuc5",
+    },
   ];
 
   return (
