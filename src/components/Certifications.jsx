@@ -33,6 +33,8 @@ const Certifications = () => {
   const containerRef = useRef(null);
 
   useEffect(() => {
+    if (!containerRef.current) return;
+  
     gsap.fromTo(
       containerRef.current.children,
       { opacity: 0, y: 100 },
@@ -44,12 +46,13 @@ const Certifications = () => {
         ease: "power3.out",
         scrollTrigger: {
           trigger: containerRef.current,
-          start: "top 85%",
+          start: "top 90%", // Adjusted for better visibility
           toggleActions: "play none none none",
         },
       }
     );
   }, []);
+  
 
   return (
     <section className="w-screen min-h-screen py-16 bg-gray-100 dark:bg-gray-900 flex flex-col items-center">
