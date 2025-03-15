@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Experience from "./Experience.jsx";
@@ -9,49 +9,53 @@ import AboutSection from "../components/AboutSection.jsx";
 const About = () => {
   const scrollContainer = useRef(null);
   const sectionsWrapper = useRef(null);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    const sections = gsap.utils.toArray(".about-section");
+    const updateLayout = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
 
-    // Get actual width of all sections combined
-    let totalWidth = sectionsWrapper.current.scrollWidth;
-    let viewportWidth = window.innerWidth;
+    window.addEventListener("resize", updateLayout);
 
-    gsap.to(sectionsWrapper.current, {
-      x: -(totalWidth - viewportWidth), // Move precisely to the last section
-      ease: "power1.out",
-      scrollTrigger: {
-        trigger: scrollContainer.current,
-        start: "top top",
-        end: "+=" + (totalWidth - viewportWidth), // Fixes empty space issue
-        scrub: 1,
-        pin: true,
-        anticipatePin: 1,
-      },
-    });
+    if (!isMobile) {
+      const sections = gsap.utils.toArray(".about-section");
+      let totalWidth = sectionsWrapper.current.scrollWidth;
+      let viewportWidth = window.innerWidth;
+
+      gsap.to(sectionsWrapper.current, {
+        x: -(totalWidth - viewportWidth),
+        ease: "power1.out",
+        scrollTrigger: {
+          trigger: scrollContainer.current,
+          start: "top top",
+          end: "+=" + (totalWidth - viewportWidth),
+          scrub: 1,
+          pin: true,
+          anticipatePin: 1,
+        },
+      });
+    }
 
     return () => {
+      window.removeEventListener("resize", updateLayout);
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
-  }, []);
+  }, [isMobile]);
 
   return (
     <section
       ref={scrollContainer}
       id="about"
-      className="relative w-[866vh] h-[100vh] bg-gray-900 overflow-hidden"
+      className={`relative ${isMobile ? "h-auto" : "w-[866vh] h-[100vh]"} bg-gray-900 overflow-hidden`}
     >
-      <div ref={sectionsWrapper} className="flex h-full">
-        {/* Section 1 */}
+      <div ref={sectionsWrapper} className={`${isMobile ? "flex flex-col" : "flex h-full"}`}>
         <AboutSection />
-        {/* Section 2 */}
-          <Experience/>
-        {/* Section 3 */}
-        <Certifications/>
-        {/* Section 4 */}
-        <Skills/>
+        <Experience />
+        <Certifications />
+        <Skills />
       </div>
     </section>
   );
