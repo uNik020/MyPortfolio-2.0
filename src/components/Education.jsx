@@ -24,11 +24,11 @@ const educationData = [
 
 const Education = () => {
   return (
-    <div className="flex flex-col justify-center backdrop-brightness-80 h-[80vh] p-4 rounded-4xl">
+    <div className="flex flex-col justify-center backdrop-brightness-80 h-[85vh] p-4 rounded-4xl">
       <h2 className="text-4xl font-bold orbitron text-white hover:text-amber-300 text-center">
         Education
       </h2>
-      <div className="mt-6 space-y-4">
+      <div className="mt-6 p-4 space-y-4">
         {educationData.map((edu, index) => (
           <motion.div
             key={index}

@@ -15,7 +15,8 @@ const experiences = [
     title: "MERN Stack Intern",
     company: "Infotact Solutions",
     date: "Jan 2025 - March 2025",
-    description: "Developed a Full stack MERN-based project - AI Job Portal with Team.",
+    description:
+      "Developed a Full stack MERN-based project - AI Job Portal with Team.",
   },
 ];
 
@@ -27,7 +28,8 @@ const experiencesWithDefault = [
     title: "More Experiences Coming Soon...",
     company: "",
     date: "",
-    description: "Stay tuned! More experiences will be added as I continue my journey.",
+    description:
+      "Stay tuned! More experiences will be added as I continue my journey.",
   },
 ];
 
@@ -50,23 +52,28 @@ const Experience = () => {
   }, [currentPage]);
 
   return (
-    <section id="experience" className="w-screen flex flex-col justify-center items-center bg-gray-900 rounded-3xl p-8">
+    <section
+      id="experience"
+      className="w-screen flex flex-col justify-center items-center bg-gray-900 rounded-3xl p-8"
+    >
       <h2 className="text-9xl select-none text-center font-extrabold rampart fixed text-white opacity-5">
         EXPERIENCE
       </h2>
 
       {/* Experience Grid */}
-      <div className="grid grid-cols-3 gap-x-20 gap-y-0 mt-12 w-full max-w-5xl justify-center">
-        {currentExperiences.map((exp, index) => (
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-5xl px-4">
+        {currentExperiences.map((exp) => (
           <div
             key={exp.id}
-            className={`exp-card relative w-[300px] backdrop-brightness-80 rounded-xl shadow-xl p-4 text-center text-white transition-transform duration-300 hover:scale-105
-              ${index === 2 ? "col-start-3 row-start-1" : index === 1 ? "col-start-2 row-start-2" : "col-start-1 row-start-1"}
-            `}
+            className="exp-card w-full sm:w-[300px] mx-auto backdrop-brightness-80 rounded-xl shadow-xl p-4 text-center text-white transition-transform duration-300 hover:scale-105"
           >
             <h3 className="text-xl font-bold orbitron">{exp.title}</h3>
-            {exp.company && <h4 className="text-md jura text-amber-400">{exp.company}</h4>}
-            {exp.date && <p className="text-sm jura text-gray-300 mt-2">{exp.date}</p>}
+            {exp.company && (
+              <h4 className="text-md jura text-amber-400">{exp.company}</h4>
+            )}
+            {exp.date && (
+              <p className="text-sm jura text-gray-300 mt-2">{exp.date}</p>
+            )}
             <p className="text-gray-400 jura mt-2">{exp.description}</p>
           </div>
         ))}
@@ -87,7 +94,9 @@ const Experience = () => {
           className={`px-4 py-2 rounded-lg jura text-white bg-gray-700 hover:bg-gray-600 hover:text-amber-300 ${
             currentPage === totalPages - 1 && "opacity-50 cursor-not-allowed"
           }`}
-          onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages - 1))}
+          onClick={() =>
+            setCurrentPage((prev) => Math.min(prev + 1, totalPages - 1))
+          }
           disabled={currentPage === totalPages - 1}
         >
           Next
