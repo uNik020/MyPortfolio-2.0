@@ -11,10 +11,10 @@ const AboutSection = () => {
       </h2>
 
       {/* Responsive Wrapper */}
-      <div className="flex flex-col md:flex-row md:h-[80vh] w-full max-w-6xl overflow-y-auto md:overflow-visible">
+      <div className="flex flex-col md:flex-row md:h-[80vh] w-screen max-w-8xl overflow-y-auto md:overflow-visible">
         
         {/* About Me Section */}
-        <div className="p-4 m-2 backdrop-brightness-80 rounded-4xl w-screen md:w-2/3">
+        <div className="p-3 m-2 backdrop-brightness-80 rounded-4xl md:w-2/3">
           <h2 className="text-white hover:text-amber-300 orbitron text-4xl text-center">
             About Me
           </h2>
@@ -61,7 +61,7 @@ const AboutSection = () => {
         </div>
 
         {/* Education Section (Stacks below on mobile) */}
-        <div className="w-full md:w-3/5 flex justify-center">
+        <div className="w-1/2 md:w-3/5 flex justify-center">
           <Education />
         </div>
       </div>
