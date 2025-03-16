@@ -45,11 +45,15 @@ const Education = () => {
               {edu.degree}
             </h3>
             <p className="mt-1 jura text-sm">{edu.institute}</p>
-            <motion.p
-              className="text-sm jura font-bold mt-2 opacity-0 group-hover:opacity-100 transition-all duration-200"
-            >
+            {/* Visible only on hover for desktops */}
+            <motion.p className="text-sm jura font-bold mt-2 opacity-0 group-hover:opacity-100 md:block transition-all duration-200">
               {edu.year} | {edu.percentage}
             </motion.p>
+
+            {/* Always visible on mobile & tablets */}
+            <p className="text-sm jura font-bold mt-2 lg:hidden">
+              {edu.year} | {edu.percentage}
+            </p>
           </motion.div>
         ))}
       </div>
