@@ -45,7 +45,7 @@ const Education = () => {
               {edu.degree}
             </h3>
             <p className="mt-1 jura text-sm">{edu.institute}</p>
-            <motion.p className="text-sm jura font-bold mt-2 opacity-0 group-hover:opacity-100 transition-all duration-200 md:opacity-100">
+            <motion.p className="text-sm jura font-bold mt-2 lg:opacity-0 lg:group-hover:opacity-100 transition-all duration-200 md:opacity-100 sm:opacity-100">
               {edu.year} | {edu.percentage}
             </motion.p>
           </motion.div>
