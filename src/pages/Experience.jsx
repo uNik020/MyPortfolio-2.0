@@ -54,12 +54,14 @@ const Experience = () => {
   return (
     <section
       id="experience"
-      className="w-screen flex flex-col justify-center items-center bg-gray-900 rounded-3xl p-8"
+      className="w-screen flex flex-col justify-center items-center bg-gray-900 rounded-3xl"
     >
       <h2 className="text-9xl select-none text-center font-extrabold rampart fixed text-white opacity-5">
         EXPERIENCE
       </h2>
-
+      <h2 className="text-white align-text-top mb-22 hover:text-amber-300 orbitron text-3xl sm:text-4xl text-center">
+        Experiences
+      </h2>
       {/* Experience Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-5xl px-4">
         {currentExperiences.map((exp) => (

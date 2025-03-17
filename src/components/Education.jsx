@@ -24,15 +24,15 @@ const educationData = [
 
 const Education = () => {
   return (
-    <div className="flex flex-col justify-center backdrop-brightness-80 h-[85vh] p-4 rounded-4xl">
+    <div className="flex flex-col justify-center backdrop-brightness-80 px-0 rounded-4xl">
       <h2 className="text-4xl font-bold orbitron text-white hover:text-amber-300 text-center">
         Education
       </h2>
-      <div className="mt-6 p-4 space-y-4">
+      <div className="mt-6 p-3 space-y-3">
         {educationData.map((edu, index) => (
           <motion.div
             key={index}
-            className="group max-h-[18vh] relative bg-gray-300 p-4 rounded-xl cursor-pointer overflow-hidden transition-all duration-200"
+            className="group max-h-[20vh] relative bg-gray-300 p-3 rounded-xl cursor-pointer overflow-hidden transition-all duration-200"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.1, delay: index * 0.01 }}
@@ -41,11 +41,11 @@ const Education = () => {
             {/* Background hover effect */}
             <div className="absolute bg-cover inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 group-hover:opacity-30 transition-all duration-200"></div>
 
-            <h3 className="text-md jura font-bold group-hover:text-blue-700 transition-all duration-150">
+            <h3 className="text-md jura font-extrabold group-hover:text-blue-700 transition-all duration-150">
               {edu.degree}
             </h3>
-            <p className="mt-1 jura text-sm">{edu.institute}</p>
-            <motion.p className="text-sm jura font-bold mt-2 lg:opacity-0 lg:group-hover:opacity-100 transition-all duration-200 md:opacity-100 sm:opacity-100">
+            <p className="mt-1 jura text-sm italic">{edu.institute}</p>
+            <motion.p className="text-sm jura font-normal mt-2 lg:opacity-0 lg:group-hover:opacity-100 transition-all duration-200 md:opacity-100 sm:opacity-100">
               {edu.year} | {edu.percentage}
             </motion.p>
           </motion.div>

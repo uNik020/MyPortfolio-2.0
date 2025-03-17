@@ -62,7 +62,7 @@ const Certifications = () => {
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-3xl md:text-4xl lg:text-5xl orbitron font-extrabold text-center text-gray-900 dark:text-white"
+          className="text-white text-3xl md:text-4xl orbitron font-extrabold text-center hover:text-amber-300"
         >
           Certifications
         </motion.h2>

@@ -49,7 +49,7 @@ const About = () => {
     <section
       ref={scrollContainer}
       id="about"
-      className={`relative ${isMobile ? "h-auto" : "w-[866vh] h-[100vh]"} bg-gray-900 overflow-hidden`}
+      className={`relative ${isMobile ? "h-auto" : "w-[860vh] h-[100vh]"} bg-gray-900 overflow-hidden`}
     >
       <div ref={sectionsWrapper} className={`${isMobile ? "flex flex-col" : "flex h-full"}`}>
         <AboutSection />
