@@ -36,7 +36,9 @@ const Projects = () => {
           Projects
         </h2>
         <div className="h-screen w-full flex justify-center items-center">
-          <InfiniteMenu items={items} />
+          <InfiniteMenu 
+          items={items}
+          />
         </div>
       </div>
     </>
