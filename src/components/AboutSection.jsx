@@ -1,6 +1,5 @@
 import React from "react";
 import TiltedCard from "../blocks/Components/TiltedCard/TiltedCard";
-import DecryptedText from "../blocks/TextAnimations/DecryptedText/DecryptedText";
 import Education from "./Education";
 
 const AboutSection = () => {
