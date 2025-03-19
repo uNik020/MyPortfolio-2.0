@@ -18,25 +18,36 @@ const Skills = () => {
     "rotate(-4deg) translate(-40px)",
     "rotate(5deg)",
     "rotate(-5deg) translate(70px)",
-    "rotate(5deg) translate(150px)",
-    "rotate(-3deg) translate(250px)",
+    "rotate(5deg) translate(120px)",
+    "rotate(-3deg) translate(180px)",
   ];
 
   return (
-    <div className="about-section w-screen flex justify-center items-center bg-gray-900 rounded-3xl p-8">
-      <h2 className="text-9xl select-none text-center font-extrabold rampart fixed text-white opacity-5">
+    <div className="about-section w-screen flex justify-center items-center bg-gray-900 rounded-3xl p-8 relative">
+      {/* Large Title for Desktop */}
+      <h2 className="text-9xl select-none text-center font-extrabold rampart fixed text-white opacity-5 hidden lg:block">
         SKILLS
       </h2>
-      <div>
+
+      {/* Responsive Title for Mobile & Tablet */}
+      <h2 className="text-4xl sm:text-5xl font-extrabold rampart text-white opacity-10 block lg:hidden absolute top-4">
+        SKILLS
+      </h2>
+
+      <div className="w-full flex justify-center">
         <BounceCards
           className="custom-bounceCards"
           images={images}
-          containerWidth={600}
-          containerHeight={250}
+          containerWidth={window.innerWidth < 768 ? 350 : 600} // Adjust width dynamically
+          containerHeight={window.innerWidth < 768 ? 180 : 250} // Adjust height dynamically
           animationDelay={1}
           animationStagger={0.08}
           easeType="elastic.out(1, 0.5)"
-          transformStyles={transformStyles}
+          transformStyles={
+            window.innerWidth < 768
+              ? ["rotate(-2deg) translate(-50px)", "rotate(2deg) translate(30px)", "rotate(-1deg)"]
+              : transformStyles
+          }
           enableHover={true}
         />
       </div>
