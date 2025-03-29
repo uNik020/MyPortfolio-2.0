@@ -105,17 +105,40 @@ const Navbar = () => {
                 />
               </div>
               <div className="m-3 flex flex-col antialiased text-gray-800 font-extralight justify-evenly gap-1">
-                 <span>
-                  <i className="ri-github-fill ri-2x"></i>
+                {/* GitHub */}
+                <span>
+                  <a
+                    href="https://github.com/uNik020"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <i className="ri-github-fill ri-2x"></i>
+                  </a>
                 </span>
-                 <span>
-                 <i className="ri-linkedin-box-fill ri-2x"></i>
+
+                {/* LinkedIn */}
+                <span>
+                  <a
+                    href="https://www.linkedin.com/in/nikhil-s-a13543228/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <i className="ri-linkedin-box-fill ri-2x"></i>
+                  </a>
                 </span>
-                 <span>
-                 <i className="ri-mail-line ri-2x"></i>
+
+                {/* Email */}
+                <span>
+                  <a href="mailto:9to5withnikhil@email.com">
+                    <i className="ri-mail-line ri-2x"></i>
+                  </a>
                 </span>
-                 <span>
-                 <i className="ri-download-line ri-2x"></i>
+
+                {/* Resume Download */}
+                <span>
+                  <a href="/RESUME mar25.pdf" download="Nikhil_Resume.pdf">
+                    <i className="ri-download-line ri-2x"></i>
+                  </a>
                 </span>
               </div>
             </div>
