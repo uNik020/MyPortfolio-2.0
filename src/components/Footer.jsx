@@ -51,7 +51,7 @@ const Footer = () => {
 
           {/* Download CV Button */}
           <motion.a
-            href="/resume.pdf"
+            href="/RESUME mar25.pdf"
             download
             whileHover={{ scale: 1.1, backgroundColor: "#FFD230" }}
             transition={{ duration: 0.3 }}

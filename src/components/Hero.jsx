@@ -53,7 +53,7 @@ const Hero = () => {
             View My Work
           </motion.a>
           <motion.a
-            href="#projects"
+            href="/RESUME mar25.pdf"
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.8, delay: 1 }}
