@@ -1,9 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import InfiniteMenu from "../blocks/Components/InfiniteMenu/InfiniteMenu.jsx";
 
 const Projects = () => {
   const [hoveredProject, setHoveredProject] = useState(null);
+
+  useEffect(() => {
+    console.log("Updated hoveredProject state:", hoveredProject);
+  }, [hoveredProject]);
+
+  const handleMouseEnter = (item) => {
+    console.log("onMouseEnter triggered for:", item.title);
+    setHoveredProject(item);
+  };
+
+  const handleMouseLeave = (item) => {
+    console.log("onMouseLeave triggered for:", item.title);
+    setHoveredProject(null);
+  };
 
   const items = [
     {
@@ -34,11 +48,10 @@ const Projects = () => {
       description: "FPS game Reaction and aim Practice website.",
       techStack: ["React", "Gsap & Framer-motion", "Tailwind CSS"],
     },
-    
   ];
 
   return (
-    <div className="relative flex flex-col items-center">
+    <div id="projects" className="relative flex flex-col items-center">
       {/* Heading */}
       <h2 className="absolute z-30 top-4 left-1/2 transform -translate-x-1/2 text-white hover:text-amber-300 orbitron text-3xl sm:text-4xl">
         Projects
@@ -47,7 +60,7 @@ const Projects = () => {
       {/* Hover Effect Overlay */}
       {hoveredProject && (
         <motion.div
-          className="absolute z-40 top-1/2 left-1/2 w-96 h-80 bg-black/80 text-white p-6 rounded-lg shadow-xl transition-opacity flex flex-col items-center"
+          className="absolute z-40 top-1/2 left-1/2 w-96 h-80 bg-black text-white p-6 rounded-lg shadow-xl transition-opacity flex flex-col items-center"
           style={{
             backgroundImage: `url(${hoveredProject.image})`,
             backgroundSize: "cover",
@@ -86,14 +99,8 @@ const Projects = () => {
             render: (
               <div
                 className="relative group p-4 rounded-lg transition-all duration-300"
-                onMouseEnter={() => {
-                  console.log("Hovering over:", item.title); // ✅ Log project title when hovered
-                  setHoveredProject(item);
-                }}
-                onMouseLeave={() => {
-                  console.log("Mouse left:", item.title); // ✅ Log when mouse leaves
-                  setHoveredProject(null);
-                }}
+                onMouseEnter={() => handleMouseEnter(item)}
+                onMouseLeave={() => handleMouseLeave(item)}
               >
                 <img
                   src={item.image}
@@ -102,7 +109,6 @@ const Projects = () => {
                 />
                 <p className="text-white mt-2 text-center">{item.title}</p>
               </div>
-
             ),
           }))}
         />
@@ -112,3 +118,4 @@ const Projects = () => {
 };
 
 export default Projects;
+  

@@ -32,9 +32,9 @@ const Footer = () => {
         {/* Icons & CV Download */}
         <motion.div className="flex gap-6 mt-4">
           {[
-            { icon: FaEnvelope, link: "mailto:example@gmail.com" },
-            { icon: FaLinkedin, link: "https://linkedin.com/in/example" },
-            { icon: FaGithub, link: "https://github.com/example" }
+            { icon: FaEnvelope, link: "mailto:9to5withnikhil@gmail.com" },
+            { icon: FaLinkedin, link: "https://www.linkedin.com/in/nikhil-s-a13543228/" },
+            { icon: FaGithub, link: "https://github.com/uNik020" }
           ].map(({ icon: Icon, link }, index) => (
             <motion.a
               key={index}
