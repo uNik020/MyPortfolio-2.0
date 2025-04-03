@@ -11,8 +11,8 @@ const AutoScrollButton = () => {
     if (!scrolling) {
       setScrolling(true);
       intervalRef.current = setInterval(() => {
-        window.scrollBy({ top: direction * 40, behavior: "smooth" }); // Adjust speed (40px per step)
-      }, 100); // Adjust speed (30ms interval)
+        window.scrollBy({ top: direction * 40, behavior: "smooth" });
+      }, 100);
     }
   };
 
@@ -38,14 +38,16 @@ const AutoScrollButton = () => {
     <button
       onClick={stopScrolling} // Single click stops scrolling
       onDoubleClick={() => (atBottom ? startScrolling(-1) : startScrolling(1))} // Double click scrolls up/down
-        className="fixed z-50 bottom-2 right-2 text-white transition"
-      >
-        <CircularText
-  text={atBottom ? " Double click to go back " : " Double Click to Scroll Down "}
-  onHover="goBonkers"
-  spinDuration={20}
-  className="relative w-1 h-1"
-/>
+      className="fixed z-50 bottom-10 right-10 transition flex items-center justify-center"
+      style={{ width: "80px", height: "80px" }} // Adjust size explicitly
+    >
+      <CircularText
+        text={atBottom ? "Double click to go back" : "Double Click to Scroll Down"}
+        onHover="goBonkers"
+        spinDuration={20}
+        className="text-sm"
+        style={{ width: "70px", height: "70px", fontSize: "10px" }} // Control the size here
+      />
     </button>
   );
 };
