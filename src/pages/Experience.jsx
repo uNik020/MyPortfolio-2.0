@@ -1,5 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const experiences = [
   {
@@ -20,7 +23,6 @@ const experiences = [
   },
 ];
 
-// Add the default card dynamically at the end
 const experiencesWithDefault = [
   ...experiences,
   {
@@ -43,16 +45,33 @@ const Experience = () => {
     (currentPage + 1) * itemsPerPage
   );
 
+  const sectionRef = useRef(null);
+
   useEffect(() => {
-    gsap.fromTo(
-      ".exp-card",
-      { opacity: 0, y: 50 }, // Initial state
-      { opacity: 1, y: 0, stagger: 0.3, duration: 1, ease: "power2.out" } // Target state
-    );
+    const cards = gsap.utils.toArray(".exp-card");
+    cards.forEach((card, index) => {
+      gsap.fromTo(
+        card,
+        { opacity: 0, y: 20 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.5,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: card,
+            start: "70% bottom",
+            end: "30% center",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+    });
   }, [currentPage]);
 
   return (
     <section
+      ref={sectionRef}
       id="experience"
       className="w-screen flex flex-col justify-center items-center bg-gray-900 rounded-3xl"
     >

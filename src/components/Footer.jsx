@@ -53,9 +53,9 @@ const Footer = () => {
           <motion.a
             href="/RESUME mar25.pdf"
             download
-            whileHover={{ scale: 1.1, backgroundColor: "#FFD230" }}
+            whileHover={{ scale: 1.1, backgroundColor: "#FFD230",color: "#000" }}
             transition={{ duration: 0.3 }}
-            className="flex items-center gap-2 px-3 py-2 text-lg text-black font-medium border-2 border-white rounded-lg hover:bg-white hover:text-black"
+            className="flex items-center gap-2 px-3 py-2 text-lg bg-black text-white font-medium border-2 border-white rounded-lg"
           >
             <FaDownload />
           </motion.a>

@@ -1,10 +1,18 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import RotatingText from "../blocks/TextAnimations/RotatingText/RotatingText";
 
 const Hero = () => {
+  const { scrollYProgress } = useScroll();
+  
+  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+
   return (
-    <section className="w-full h-full flex flex-col justify-evenly items-center text-center px-6 sm:px-12 md:flex-row md:text-left md:px-16 lg:px-24">
+    <motion.section
+      style={{ scale, opacity }}
+      className="w-full h-full flex flex-col justify-evenly items-center text-center px-6 sm:px-12 md:flex-row md:text-left md:px-16 lg:px-24"
+    >
       {/* Animated Text */}
       <div className="text-white z-10 max-w-lg md:max-w-xl lg:max-w-2xl">
         <motion.h1
@@ -15,7 +23,6 @@ const Hero = () => {
         >
           Hi, I'm A{" "}
           <span className="text-yellow-400 inline-flex items-center ml-2">
-            {/* Fixed height wrapper */}
             <div className="h-[48px] sm:h-[56px] md:h-[64px] lg:h-[72px] flex items-center overflow-hidden">
               <RotatingText
                 texts={[" Frontend", " Backend ", " Fullstack", " Database"]}
@@ -63,7 +70,7 @@ const Hero = () => {
           </motion.a>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

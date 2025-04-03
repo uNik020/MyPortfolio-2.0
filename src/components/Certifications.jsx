@@ -9,20 +9,27 @@ const Certifications = () => {
   const certificates = [
     {
       id: 1,
+      title: "MERN stack Intern",
+      description: "Infotact Solutions - Jan 2025 - March 2025",
+      image: "https://i.imgur.com/JS9Dyzo.jpeg",
+      link: "https://imgur.com/a/Z4rA123",
+    },
+    {
+      id: 2,
       title: "SDE Intern",
       description: "Bluestock Fintech - Dec 2024 - Jan 2025",
       image: "https://i.imgur.com/JS9Dyzo.jpeg",
       link: "https://imgur.com/a/Z4rA123",
     },
     {
-      id: 2,
+      id: 3,
       title: "Full Stack Java Development",
       description: "Edubridge Pvt. Ltd. - May 2024 - Sept 2024",
       image: "https://i.imgur.com/RTfPe9a.jpeg",
       link: "https://imgur.com/a/full-stack-java-development-certificate-HSvfkLC",
     },
     {
-      id: 3,
+      id: 4,
       title: "Web Development Basic to Advance",
       description: "Coursera - Dec 2022 - Jan 2023",
       image: "https://i.imgur.com/fnrFBMo.jpeg",
@@ -34,7 +41,7 @@ const Certifications = () => {
 
   useEffect(() => {
     if (!containerRef.current) return;
-  
+
     gsap.fromTo(
       containerRef.current.children,
       { opacity: 0, y: 100 },
@@ -52,7 +59,6 @@ const Certifications = () => {
       }
     );
   }, []);
-  
 
   return (
     <section className="w-screen min-h-screen py-16 bg-gray-100 dark:bg-gray-900 flex flex-col items-center">
@@ -70,7 +76,7 @@ const Certifications = () => {
         {/* Certifications Grid */}
         <div
           ref={containerRef}
-          className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3"
+          className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 max-h-[400px] overflow-y-auto hover:overflow-y-scroll scrollbar-thin scrollbar-thumb-gray-400 dark:scrollbar-thumb-gray-600"
         >
           {certificates.map((cert) => (
             <div
@@ -86,7 +92,9 @@ const Certifications = () => {
                 <h3 className="font-bold text-lg mt-4 text-gray-900 dark:text-white">
                   {cert.title}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300">{cert.description}</p>
+                <p className="text-gray-600 dark:text-gray-300">
+                  {cert.description}
+                </p>
                 <p className="mt-4 text-purple-500 font-semibold">
                   View Certificate →
                 </p>
