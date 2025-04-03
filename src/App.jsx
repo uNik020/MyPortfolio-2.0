@@ -8,6 +8,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Projects from "./pages/Projects";
 import Footer from "./components/Footer";
+import AutoScrollButton from "./components/AutoscrollButton";
 
 const App = () => {
   const { isLoading } = useContext(LoadingContext);
@@ -61,6 +62,7 @@ const App = () => {
               <Contact />
               <Footer />
             </motion.div> 
+            <AutoScrollButton></AutoScrollButton>
           </motion.div>
         )}
       </AnimatePresence>

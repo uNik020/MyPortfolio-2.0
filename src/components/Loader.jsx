@@ -38,7 +38,7 @@ const Loader = ({ isLoading }) => {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.1 }}
-                  className={`absolute text-white font-extrabold ${greeting.font} text-6xl md:text-7xl lg:text-9xl`}
+                  className={`absolute antialiased text-white font-extrabold ${greeting.font} text-6xl md:text-7xl lg:text-9xl`}
                   style={greeting.style}
                 >
                   {greeting.text}

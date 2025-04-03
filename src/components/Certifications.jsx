@@ -11,8 +11,8 @@ const Certifications = () => {
       id: 1,
       title: "MERN stack Intern",
       description: "Infotact Solutions - Jan 2025 - March 2025",
-      image: "https://i.imgur.com/JS9Dyzo.jpeg",
-      link: "https://imgur.com/a/Z4rA123",
+      image: "https://i.imgur.com/CD9gSfL.jpeg",
+      link: "https://imgur.com/gallery/infotact-solutions-IlDkp7N",
     },
     {
       id: 2,
