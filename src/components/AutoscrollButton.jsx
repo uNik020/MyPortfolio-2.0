@@ -1,28 +1,38 @@
 import { useState, useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import CircularText from "../blocks/TextAnimations/CircularText/CircularText";
+
+gsap.registerPlugin(ScrollToPlugin);
 
 const AutoScrollButton = () => {
   const [scrolling, setScrolling] = useState(false);
   const [atBottom, setAtBottom] = useState(false);
-  const intervalRef = useRef(null);
+  const scrollTween = useRef(null);
 
-  // Function to start scrolling (down or up)
   const startScrolling = (direction) => {
     if (!scrolling) {
       setScrolling(true);
-      intervalRef.current = setInterval(() => {
-        window.scrollBy({ top: direction * 40, behavior: "smooth" });
-      }, 100);
+
+      scrollTween.current = gsap.to(window, {
+        scrollTo: {
+          y: direction === 1 ? document.body.scrollHeight : 0,
+          autoKill: false,
+        },
+        duration: 10,
+        ease: "power1.inOut",
+        onComplete: () => setScrolling(false),
+      });
     }
   };
 
-  // Function to stop scrolling
   const stopScrolling = () => {
-    setScrolling(false);
-    clearInterval(intervalRef.current);
+    if (scrolling && scrollTween.current) {
+      scrollTween.current.kill();
+      setScrolling(false);
+    }
   };
 
-  // Detect when the user reaches the bottom or top
   useEffect(() => {
     const handleScroll = () => {
       const nearBottom =
@@ -36,17 +46,17 @@ const AutoScrollButton = () => {
 
   return (
     <button
-      onClick={stopScrolling} // Single click stops scrolling
-      onDoubleClick={() => (atBottom ? startScrolling(-1) : startScrolling(1))} // Double click scrolls up/down
-      className="fixed z-50 bottom-10 right-10 transition flex items-center justify-center"
-      style={{ width: "80px", height: "80px" }} // Adjust size explicitly
+      onClick={stopScrolling}
+      onDoubleClick={() => (atBottom ? startScrolling(-1) : startScrolling(1))}
+      className="fixed z-40 bottom-1 right-1 transition flex items-center justify-center"
+      style={{ width: "80px", height: "80px" }}
     >
       <CircularText
-        text={atBottom ? "Double click to go back" : "Double Click to Scroll Down"}
+        text={atBottom ? "| Double click to go back " : " Double Click to auto Scroll ⬇"}
         onHover="goBonkers"
         spinDuration={20}
         className="text-sm"
-        style={{ width: "70px", height: "70px", fontSize: "10px" }} // Control the size here
+        style={{ width: "70px", height: "70px", fontSize: "20px" }}
       />
     </button>
   );

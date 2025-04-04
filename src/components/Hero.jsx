@@ -9,6 +9,7 @@ const Hero = () => {
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   return (
+    <>
     <motion.section
       style={{ scale, opacity }}
       className="w-full h-full flex flex-col justify-evenly items-center text-center px-6 sm:px-12 md:flex-row md:text-left md:px-16 lg:px-24"
@@ -56,7 +57,7 @@ const Hero = () => {
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.8, delay: 1 }}
             className="jura inline-block px-5 py-3 bg-yellow-400 text-gray-900 font-bold rounded-lg shadow-lg hover:scale-105 transition"
-          >
+            >
             View My Work
           </motion.a>
           <motion.a
@@ -71,6 +72,7 @@ const Hero = () => {
         </div>
       </div>
     </motion.section>
+            </>
   );
 };
 

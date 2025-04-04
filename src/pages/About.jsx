@@ -5,6 +5,7 @@ import Experience from "./Experience.jsx";
 import Certifications from "../components/Certifications.jsx";
 import Skills from "../components/Skills.jsx";
 import AboutSection from "../components/AboutSection.jsx";
+import ClickSpark from "../blocks/Animations/ClickSpark/ClickSpark.jsx";
 
 const About = () => {
   const scrollContainer = useRef(null);
