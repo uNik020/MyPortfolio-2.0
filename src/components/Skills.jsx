@@ -17,9 +17,10 @@ const Skills = () => {
           SKILLS
         </h2>
 
-        <div className="w-full h-full flex justify-center align-middle">
+        <div className="w-full h-full sm:h-full lg:h-full md:h-full flex justify-center">
           <FallingText
-            text={`JAVA HTML JAVASCRIPT CSS REACT & ANGULAR GITHUB TAILWINDCSS GIT C C++ C# .`}
+          className="w-full h-full sm:h-full lg:h-full md:h-full flex justify-center"
+            text={`JAVA HTML JAVASCRIPT CSS REACT & ANGULAR GITHUB TAILWINDCSS GIT SQL MONGODB EXPRESSJS NODEJS C C++ C# VS-Code Springboot GSAP FramerMotion Figma Photoshop Video-Editing OOPS REST-API AWS Azure.`}
             highlightWords={[
               "JAVASCRIPT",
               "JAVA",
@@ -27,13 +28,19 @@ const Skills = () => {
               "ANGULAR",
               "TAILWINDCSS",
               "C#",
+              "SQL",
+              "GSAP",
+              "Springboot",
+              "OOPS",
+              "AWS",
+              "REST-API",
             ]}
             highlightClass="highlighted"
             trigger="click"
             backgroundColor="transparent"
             wireframes={false}
             gravity={0.56}
-            fontSize="3rem"
+            fontSize="2rem"
             mouseConstraintStiffness={0.9}
             />
         </div>
