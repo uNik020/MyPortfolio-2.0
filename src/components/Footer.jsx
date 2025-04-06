@@ -22,7 +22,7 @@ const Footer = () => {
               href={`#${link.toLowerCase()}`}
               whileHover={{ scale: 1.1, color: "#FFD230" }}
               transition={{ duration: 0.3 }}
-              className="cursor-pointer"
+              className="cursor-pointer jura"
             >
               {link}
             </motion.a>

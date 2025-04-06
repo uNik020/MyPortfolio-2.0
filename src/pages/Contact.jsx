@@ -48,7 +48,7 @@ const Contact = () => {
           Contact Me
         </motion.h2>
 
-        <p className="text-lg text-center mt-4 text-gray-700 dark:text-gray-300">
+        <p className="text-lg text-center mt-4 text-gray-700 dark:text-gray-300 rampart">
           Have a project or just want to say hi? Let's talk!
         </p>
 

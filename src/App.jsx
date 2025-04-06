@@ -9,7 +9,6 @@ import Contact from "./pages/Contact";
 import Projects from "./pages/Projects";
 import Footer from "./components/Footer";
 import AutoScrollButton from "./components/AutoscrollButton";
-import ClickSpark from "./blocks/Animations/ClickSpark/ClickSpark";
 
 const App = () => {
   const { isLoading } = useContext(LoadingContext);
@@ -46,7 +45,7 @@ const App = () => {
             >
               <About />
             </motion.div>
-
+            
             <motion.div
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
