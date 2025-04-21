@@ -42,6 +42,13 @@ const Projects = () => {
       techStack: ["React", "Spring Boot", "MySQL", "Tailwind CSS"],
     },
     {
+      image: "https://i.imgur.com/sivDtgm.jpeg",
+      link: "https://career-connect-frontend.netlify.app",
+      title: "CareerConnect",
+      description: "Job Portal website.",
+      techStack: ["React", "Mongodb", "NodeJS", "Express"],
+    },
+    {
       image: "https://i.imgur.com/07stSwy.jpeg",
       link: "https://aimlabz.netlify.app/",
       title: "AimLabz",
